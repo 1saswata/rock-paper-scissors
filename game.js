@@ -22,38 +22,48 @@ function getHumanChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
+    console.log(`Computer has chosen ${computerChoice}.`);
+    //If both choices are same, noone wins
     if(humanChoice === computerChoice) 
         console.log("Draw! No score.");
     else {
+    //If choices aren't same, rock beats scissors, paper beats rock, scissors 
+    //beat paper. 
         switch (humanChoice) {
             case "rock":
                 if (computerChoice === "scissors") {
                     humanScore++;
-                    console.log(`You win! ${computerChoice + " beats " + humanChoice}.`);
+                    console.log(`You win! ${humanChoice + " beats " 
+                    + computerChoice}.`);
                 }
                 else {
                     computerScore++;
-                    console.log(`You lose! ${computerChoice + " beats " + humanChoice}.`);
+                    console.log(`You lose! ${computerChoice + " beats " 
+                    + humanChoice}.`);
                 }
                 break;
             case "paper":
                 if (computerChoice === "rock") {
                     humanScore++;
-                    console.log(`You win! ${computerChoice + " beats " + humanChoice}.`);
+                    console.log(`You win! ${humanChoice + " beats " 
+                    + computerChoice}.`);
                 }
                 else {
                     computerScore++;
-                    console.log(`You lose! ${computerChoice + " beats " + humanChoice}.`);
+                    console.log(`You lose! ${computerChoice + " beats " 
+                    + humanChoice}.`);
                 }
                 break;
             case "scissors":
                 if (computerChoice === "paper") {
                     humanScore++;
-                    console.log(`You win! ${computerChoice + " beats " + humanChoice}.`);
+                    console.log(`You win! ${humanChoice + " beats " 
+                    + computerChoice}.`);
                 }
                 else {
                     computerScore++;
-                    console.log(`You lose! ${computerChoice + " beats " + humanChoice}.`);
+                    console.log(`You lose! ${computerChoice + " beats " 
+                    + humanChoice}.`);
                 }
                 break;
         }
