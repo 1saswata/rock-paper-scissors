@@ -13,25 +13,54 @@ function getComputerChoice() {
         return "scissors";
 }
 
-console.log(getComputerChoice());
-
 function getHumanChoice() {
     let userChoice = "";
-    let userChoiceNumber = Number(prompt("Enter your pick (1/2/3) - 1 for Rock/ 2 for Paper/ 3 for Scissors:"));
-    switch (userChoiceNumber) {
-        case 1:
-            userChoice = "rock";
-            break;
-        case 2:
-            userChoice = "paper";
-            break;
-        case 3:
-            userChoice = "scissors";
-            break;
-        default:
-            userChoice = null;
-    }
+    let answer = prompt("Enter your pick - Rock / Paper / Scissors:");
+    userChoice = answer.toLowerCase();
+    //TODO Check if entered value is anything other than expected value
     return userChoice;
 }
 
-console.log(getHumanChoice());
+function playRound(humanChoice, computerChoice) {
+    if(humanChoice === computerChoice) 
+        console.log("Draw! No score.");
+    else {
+        switch (humanChoice) {
+            case "rock":
+                if (computerChoice === "scissors") {
+                    humanScore++;
+                    console.log(`You win! ${computerChoice + " beats " + humanChoice}.`);
+                }
+                else {
+                    computerScore++;
+                    console.log(`You lose! ${computerChoice + " beats " + humanChoice}.`);
+                }
+                break;
+            case "paper":
+                if (computerChoice === "rock") {
+                    humanScore++;
+                    console.log(`You win! ${computerChoice + " beats " + humanChoice}.`);
+                }
+                else {
+                    computerScore++;
+                    console.log(`You lose! ${computerChoice + " beats " + humanChoice}.`);
+                }
+                break;
+            case "scissors":
+                if (computerChoice === "paper") {
+                    humanScore++;
+                    console.log(`You win! ${computerChoice + " beats " + humanChoice}.`);
+                }
+                else {
+                    computerScore++;
+                    console.log(`You lose! ${computerChoice + " beats " + humanChoice}.`);
+                }
+                break;
+        }
+    }
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
