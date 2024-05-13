@@ -74,14 +74,12 @@ function playGame() {
     }
     let humanSelection = "";
     let computerSelection= "";
-    for(let i=0; i<5; i++) {
-        console.log(`Round ${i+1}: `)
-        humanSelection = getHumanChoice();
-        computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
-        console.log(`Current Score -\n 
-        You: ${humanScore} | Computer: ${computerScore}\n`)
-    }
+    console.log(`Round ${i+1}: `)
+    humanSelection = getHumanChoice();
+    computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+    console.log(`Current Score -\n 
+    You: ${humanScore} | Computer: ${computerScore}\n`
     if(humanScore > computerScore)
         console.log("Congrats, you win!");
     else if (humanScore === computerScore)
